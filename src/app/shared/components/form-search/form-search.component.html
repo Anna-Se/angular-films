@@ -8,7 +8,8 @@
 				 id="title"
 				 name="title"
 				 class="form-search__input"
-				 [(ngModel)]="name">
+				 [(ngModel)]="name"
+				 (keyup.enter)="getFilms(pageIndex)">
 	</div>
 	<div class="form-search__block">
 		<label for="type"
