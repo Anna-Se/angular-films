@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Film } from '../app/shared/model/film.model';
+import { PageEvent } from '@angular/material/paginator';
+import { Film, Omdb } from '../app/shared/model/film.model';
 
 @Component({
 	selector: 'app-root',
@@ -7,10 +8,18 @@ import { Film } from '../app/shared/model/film.model';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+	length!: string;
 	films: Film[] = [];
 	title = 'project-films';
+	pageIndex!: string;
 
-	getFilms(films: Film[]) {
-		this.films = films;
+	getFilms(data: Omdb) {
+		this.films = data.Search;
+		this.length = data.totalResults;
+	}
+
+	getEventsData(event: PageEvent): void {
+		console.log(event);
+		this.pageIndex = event.pageIndex + 1 +"";
 	}
 }

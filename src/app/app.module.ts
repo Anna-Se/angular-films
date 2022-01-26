@@ -9,6 +9,7 @@ import { FilmItemComponent } from './shared/components/film-item/film-item.compo
 import {MatDialogModule} from '@angular/material/dialog';
 import { FilmDetailsComponent } from './shared/dialog/film-details/film-details.component';
 import {MatIconModule} from '@angular/material/icon';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
 	declarations: [
@@ -25,6 +26,7 @@ import {MatIconModule} from '@angular/material/icon';
 		FormsModule,
 		MatDialogModule,
 		MatIconModule,
+		MatPaginatorModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]

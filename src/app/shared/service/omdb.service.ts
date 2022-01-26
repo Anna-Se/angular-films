@@ -23,8 +23,8 @@ export class OmdbService {
 		return this.httpClient.get<Omdb>(API_URL + new URLSearchParams(queryParams));
 	}
 
-	public getMovies(name: string, type: string): Observable<any> {
-		return this.httpClient.get<Omdb>(`${API_URL}?apikey=${API_KEY}&s=${name}&t=${type}`)
+	public getMovies(name: string, type: string, page: string): Observable<any> {
+		return this.httpClient.get<Omdb>(`${API_URL}?apikey=${API_KEY}&s=${name}&t=${type}&page=${page}`)
 	}
 
 	public getMovieById(id: string): Observable<any> {

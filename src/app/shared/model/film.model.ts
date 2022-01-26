@@ -1,7 +1,7 @@
 export interface Omdb {
 	Response: string,
 	Search: Film[],
-	totalResult: string
+	totalResults: string
 }
 
 export interface Film {

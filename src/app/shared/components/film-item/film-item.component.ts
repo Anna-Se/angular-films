@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FilmDetailsComponent } from '../../dialog/film-details/film-details.component';
 import { Film, Movie } from '../../model/film.model';
