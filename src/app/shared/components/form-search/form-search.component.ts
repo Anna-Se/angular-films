@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { OmdbService } from '../../service/omdb.service'
 import { Omdb, Film } from '../../model/film.model';
 import { EventEmitter } from '@angular/core';
@@ -10,21 +10,28 @@ import { EventEmitter } from '@angular/core';
 })
 export class FormSearchComponent implements OnInit {
 
-	films: Film[] = [];
+	data: Omdb | undefined;
 	name: string = "";
 	type: string = "movie";
 
-	@Output() onFilmSearch: EventEmitter<Film[]> = new EventEmitter();
+	@Input() pageIndex!: string;
+	@Output() onFilmSearch: EventEmitter<Omdb> = new EventEmitter();
 
 	constructor(private omdbService: OmdbService) { }
 
+	ngOnChanges(changes: SimpleChanges) {
+		this.getFilms(this.pageIndex);
+		console.log(this.pageIndex)
+	}
+	
 	ngOnInit(): void {
 	}
 
-	getFilms(): void {
-		this.omdbService.getFilms(this.name, this.type, "1").subscribe((films: Omdb) => {
-			this.films = films.Search;
-			this.onFilmSearch.emit(this.films);
+	public getFilms(pageIndex: string): void {
+		this.omdbService.getFilms(this.name, this.type, pageIndex).subscribe((data: Omdb) => {
+			this.data = data;
+			this.onFilmSearch.emit(this.data);
+			console.log(data)
 		})
 	}
 
