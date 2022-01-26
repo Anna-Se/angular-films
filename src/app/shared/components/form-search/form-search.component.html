@@ -1,0 +1,30 @@
+<form class="form-search"
+		name="search">
+	<h2>Search:</h2>
+	<div class="form-search__block">
+		<label for="title"
+				 class="form-search__label">Title:</label>
+		<input type="text"
+				 id="title"
+				 name="title"
+				 class="form-search__input"
+				 [(ngModel)]="name">
+	</div>
+	<div class="form-search__block">
+		<label for="type"
+				 class="form-search__label">Type:</label>
+		<select name="type"
+				  id="type"
+				  class="form-search__select"
+				  [(ngModel)]="type">
+			<option value="movie">Movie</option>
+			<option value="series">Series</option>
+			<option value="episode">Episode</option>
+		</select>
+	</div>
+	<div class="form-search__block">
+		<button class="form-search__btn"
+				  type="button"
+				  (click)="getFilms()">Search</button>
+	</div>
+</form>

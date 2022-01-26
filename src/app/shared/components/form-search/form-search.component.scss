@@ -1,0 +1,23 @@
+.form-search {
+	text-align: center;
+
+	.form-search__block {
+		width: 300px;
+		display: flex;
+		justify-content: space-between;
+		margin: 10px auto;
+	}
+	.form-search__label {
+		width: 20%;
+		display: flex;
+		align-items: center;
+	}
+	.form-search__input,
+	.form-search__select {
+		width: 80%;
+		height: 30px;
+	}
+}
+.form-search__btn {
+	width: 100%;
+}

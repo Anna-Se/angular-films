@@ -1,0 +1,17 @@
+<div class="film">
+	<div class="poster">
+		<div class="poster_img">
+			<img [src]="film.Poster"
+				  alt="" class="poster">
+		</div>
+		<button (click)="getMovieById(film.imdbID)"
+				[disabled]="isDisabled === true"
+				class="details_film"
+				  idfilm="tt0372784">Details </button>
+	</div>
+	<div class="info">
+		<p class="type">{{film?.Type}}</p>
+		<h3>{{film?.Title}}</h3>
+		<p class="year_film">{{film?.Year}}</p>
+	</div>
+</div>
