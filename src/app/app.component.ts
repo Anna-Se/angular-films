@@ -8,18 +8,23 @@ import { Film, Omdb } from '../app/shared/model/film.model';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+	error!: string;
 	length!: string;
 	films: Film[] = [];
 	title = 'project-films';
 	pageIndex!: string;
 
 	getFilms(data: Omdb) {
-		this.films = data.Search;
-		this.length = data.totalResults;
+		this.error = "";
+		if (data.Response === "True") {
+			this.films = data.Search;
+			this.length = data.totalResults;
+		} else {
+			this.error = data.Error;
+		}
 	}
 
 	getEventsData(event: PageEvent): void {
-		console.log(event);
-		this.pageIndex = event.pageIndex + 1 +"";
+			this.pageIndex = event.pageIndex + 1 +"";
 	}
 }

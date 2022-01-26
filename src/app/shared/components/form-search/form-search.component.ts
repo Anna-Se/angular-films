@@ -20,7 +20,9 @@ export class FormSearchComponent implements OnInit {
 	constructor(private omdbService: OmdbService) { }
 
 	ngOnChanges(changes: SimpleChanges) {
-		this.getFilms(this.pageIndex);
+		if (this.pageIndex !== undefined) {
+			this.getFilms(this.pageIndex);
+		}
 		console.log(this.pageIndex)
 	}
 	

@@ -23,7 +23,8 @@
 		</select>
 	</div>
 	<div class="form-search__block">
-		<button class="form-search__btn"
+		<button [disabled]="!name"
+				class="form-search__btn"
 				  type="button"
 				  (click)="getFilms(pageIndex)">Search</button>
 	</div>
